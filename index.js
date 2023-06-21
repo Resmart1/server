@@ -14,7 +14,7 @@ wss.on('connection', (ws) => {
 
 	ws.on('message', (message) => {
 		message = JSON.parse(message);
-		if (message === `Паравозик чух`) {
+		if (message.toString() === `Паравозик чух-чух`) {
 		writeFile('log', JSON.stringify(''), err => {
 		if (err) {
 			console.log(err);
