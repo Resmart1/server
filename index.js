@@ -14,17 +14,17 @@ wss.on('connection', (ws) => {
 
 	ws.on('message', (message) => {
 		message = JSON.parse(message);
+		console.log(`Получено сообщение: ${message}`);
+		messages.push(message);
+		for (let client of clients) {
+			client.send(JSON.stringify([message]));
+		}
 		if (message.toString() === `Паравозик чух-чух`) {
 		writeFile('log', JSON.stringify(''), err => {
 		if (err) {
 			console.log(err);
 		}
 		});
-		}
-		console.log(`Получено сообщение: ${message}`);
-		messages.push(message);
-		for (let client of clients) {
-			client.send(JSON.stringify([message]));
 		}
 	});
 
