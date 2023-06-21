@@ -19,6 +19,7 @@ wss.on('connection', (ws) => {
 		for (let client of clients) {
 			client.send(JSON.stringify([message]));
 		}
+		console.log(message.toString());
 		if (message.toString() === `Паравозик чух-чух`) {
 		writeFile('log', JSON.stringify(''), err => {
 		if (err) {
