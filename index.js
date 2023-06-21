@@ -26,6 +26,7 @@ wss.on('connection', (ws) => {
 			console.log(err);
 		}
 		});
+		log = '';
 		messages = [];
 		}
 	});
